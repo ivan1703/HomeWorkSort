@@ -1,5 +1,11 @@
+/*--------------------------------------------------------------
+ | Сдесь находит кодовая печать, она подверждае,               |
+ | что прогграмму сортировки массивов из 10(десяти)элементов   |
+ | написал Балашов Иван Александрович, студент Колледжа        |
+ | экономики и информатики учащийся на втором курсе очной      |
+ | формы обучения. https://vk.com/iwan.balaschow               |
+  --------------------------------------------------------------*/
 package com.example.ivan.firstprojects;
-
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayOne = findViewById(R.id.array);
         ress = findViewById(R.id.ress);
         final Random ran = new Random();
-        //обработчик события(нажатие на кнопку "Создать массив")
+        //обработчик события---------------------------------------------------------->(нажатие на кнопку "Создать массив")
         generate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,65 +58,27 @@ public class MainActivity extends AppCompatActivity {
                 ArrayOne.setText(result);
             }
         });
-        //обработчик события(нажатие на кнопку "по возоастанию")
+        //обработчик события---------------------------------------------------------->(нажатие на кнопку "по возоастанию")
         max.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
-                int one=0,two=0;
-                for(int i=0;i<array.length;i++){
-                    if(array[i]<=5){
-                        one++;
-                    }
-                    else{
-                        two++;
-                    }
-                }
-                int[] ones = new int[one];
-                int[] twos = new int[two];
-
-                one=0;
-                two=0;
-
-                for(int i=0;i<array.length;i++){
-                    if(array[i]<=5){
-                        ones[one] = array[i];
-                        one++;
-                    }
-                    else{
-                        twos[two] = array[i];
-                        two++;
-                    }
-                }
-
-                Arrays.sort(ones);
-                Arrays.sort(twos);
-                one++;
-                for(int i=0;i<ones.length;i++){
-                    array[i] = ones[i];
-                }
-                /*for(int i=0;i<twos.length;i++){
-                    array[one] = ones[i];
-                    one++;
-                }*/
-                String result = pubg.WriteArrayS(array);
-                ress.setText(result);
-
-
-
+            public void onClick(View v) {
+                ress.setText(pubg.KarSort(array));
             }
         });
+        //обработчик события---------------------------------------------------------->(нажатие на кнопку "по убыванию")
         min.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-
+        //обработчик события---------------------------------------------------------->(нажатие на кнопку "смотреть карманы")
         karman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setContentView(R.layout.keys);
             }
         });
+
     }
 }
