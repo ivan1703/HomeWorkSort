@@ -1,4 +1,6 @@
 package com.example.ivan.firstprojects;
+import android.widget.TextView;
+
 import java.util.Arrays;
 
 public class pubg {
@@ -12,25 +14,7 @@ public class pubg {
         }
         return result;
     }
-
-
-    public static String WriteArray(int[] arr){
-        String result = "";
-        for(int i = 9;i>0;i--){
-            if(arr[i] != 0) {
-                result = result + Integer.toString(arr[i]) + " ";
-            }
-        }
-        return result;
-    }
-    public static String WriteArrayS(int[] arr){
-        String result= "";
-        for(int i = 0;i<arr.length;i++){
-                result = result + Integer.toString(arr[i]) + " ";
-        }
-        return result;
-    }
-    public static String KarSort(int[] array){
+    public static int[] KarSort(int[] array){
         int one = 0, two = 0;
         for(int i = 0; i < array.length; i++) {
             if (array[i] <= 5) {
@@ -41,7 +25,6 @@ public class pubg {
         }
         int[] ones = new int[one];
         int[] twos = new int[two];
-
         one = 0;
         two = 0;
 
@@ -55,21 +38,54 @@ public class pubg {
                 two++;
             }
         }
-        Arrays.sort(ones);
-        Arrays.sort(ones);
 
-        int xy = 0;
-        for(int j = 0;j<ones.length;j++){
-                array[j]=ones[j];
-                xy++;
-            }
-            xy--;
-        for(int j = 0;j<twos.length;j++){
-            array[j]=ones[j];
-            xy++;
+        Arrays.sort(ones);
+        Arrays.sort(twos);
+        int fix = 0;
+        for(int i=0;i<ones.length;i++){
+            array[i] = ones[i];
+            fix++;
         }
-        String result = write(array);
-        return result;
+        for(int i=0;i<twos.length;i++){
+            array[i+fix] = twos[i];
+        }
+        return array;
+    }
+    public static String Kar1(int[] array){
+        int one = 0;
+        for(int i = 0; i < array.length; i++) {
+            if (array[i] <= 5) {
+                one++;
+            }
+        }
+        int[] ones = new int[one];
+        one = 0;
+        for(int i = 0; i<array.length;i++){
+            if(array[i]<=5){
+                ones[one] = array[i];
+                one++;
+            }
+        }
+        String res1 = write(ones);
+        return res1;
+    }
+    public static String Kar2(int[] array){
+        int one = 0;
+        for(int i = 0; i < array.length; i++) {
+            if (array[i] > 5) {
+                one++;
+            }
+        }
+        int[] ones = new int[one];
+        one = 0;
+        for(int i = 0; i<array.length;i++){
+            if(array[i]>5){
+                ones[one] = array[i];
+                one++;
+            }
+        }
+        String res1 = write(ones);
+        return res1;
     }
 
 }

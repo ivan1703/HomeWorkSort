@@ -19,8 +19,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 //создание переменных(кейсы для кнопок)
-    public Button max,min,karman;
-    public Button openSourse,home;
+    public Button max,karman;
     public TextView keys_one,keys_two;
     public Button generate;
     public TextView ArrayOne;
@@ -34,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //заполнение кейсов(передаем знаечения с кнопок на переменные)->
         max = findViewById(R.id.max);
-        min = findViewById(R.id.min);
         karman = findViewById(R.id.karman);
-        openSourse = findViewById(R.id.openSourse);
-        home = findViewById(R.id.home);
         generate = findViewById(R.id.generator);
         keys_one = findViewById(R.id.keys_one);
         keys_two =  findViewById(R.id.keys_two);
@@ -62,23 +58,20 @@ public class MainActivity extends AppCompatActivity {
         max.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ress.setText(pubg.KarSort(array));
-            }
-        });
-        //обработчик события---------------------------------------------------------->(нажатие на кнопку "по убыванию")
-        min.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+                pubg.KarSort(array);
+                ress.setText(pubg.write(array));
             }
         });
         //обработчик события---------------------------------------------------------->(нажатие на кнопку "смотреть карманы")
         karman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.keys);
+                keys_one.setText(pubg.Kar1(array));
+                keys_two.setText(pubg.Kar2(array));
             }
         });
+        //обработчик события---------------------------------------------------------->(нажатие на кнопку "назад")
+
 
     }
 }
